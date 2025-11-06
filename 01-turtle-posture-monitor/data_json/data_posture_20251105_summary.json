@@ -1,0 +1,75 @@
+{
+  "summary": {
+    "total_segments": 11,
+    "total_forward_head_count": 477,
+    "avg_forward_head_per_segment": 43.36
+  },
+  "details": [
+    {
+      "time": "16:00-16:01",
+      "forward_head_count": 85,
+      "total_samples": 192,
+      "forward_head_ratio": 0.443
+    },
+    {
+      "time": "16:01-16:02",
+      "forward_head_count": 41,
+      "total_samples": 191,
+      "forward_head_ratio": 0.215
+    },
+    {
+      "time": "16:02-16:03",
+      "forward_head_count": 30,
+      "total_samples": 191,
+      "forward_head_ratio": 0.157
+    },
+    {
+      "time": "16:03-16:04",
+      "forward_head_count": 40,
+      "total_samples": 191,
+      "forward_head_ratio": 0.209
+    },
+    {
+      "time": "16:04-16:05",
+      "forward_head_count": 47,
+      "total_samples": 191,
+      "forward_head_ratio": 0.246
+    },
+    {
+      "time": "16:05-16:06",
+      "forward_head_count": 46,
+      "total_samples": 191,
+      "forward_head_ratio": 0.241
+    },
+    {
+      "time": "16:06-16:07",
+      "forward_head_count": 25,
+      "total_samples": 191,
+      "forward_head_ratio": 0.131
+    },
+    {
+      "time": "16:07-16:08",
+      "forward_head_count": 37,
+      "total_samples": 191,
+      "forward_head_ratio": 0.194
+    },
+    {
+      "time": "16:08-16:09",
+      "forward_head_count": 24,
+      "total_samples": 191,
+      "forward_head_ratio": 0.126
+    },
+    {
+      "time": "16:09-16:10",
+      "forward_head_count": 44,
+      "total_samples": 191,
+      "forward_head_ratio": 0.23
+    },
+    {
+      "time": "16:10-16:11",
+      "forward_head_count": 58,
+      "total_samples": 190,
+      "forward_head_ratio": 0.305
+    }
+  ]
+}
