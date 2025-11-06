@@ -26,7 +26,7 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 ## ⚙️ 시스템 구성
 
 <p align="center">
-  <img src="./image/turtle-posture-graph.png" width="720" alt="거북목 자세 분석 리포트 예시">
+  <img src="01-turtle-posture-monitor/image/turtle-posture-graph.png" width="720" alt="거북목 자세 분석 리포트 예시">
 </p>
 
 
@@ -71,7 +71,7 @@ python python/app_turtle.py
 > 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
 
 <p align="center">
-  <img src="./image/turtle-posture-report.png" width="720" alt="거북목 자세 분석 리포트 예시">
+  <img src="01-turtle-posture-monitor/image/turtle-posture-report.png" width="720" alt="거북목 자세 분석 리포트 예시">
 </p>
 
 ## 🌿 서비스 가치
