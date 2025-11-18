@@ -266,7 +266,7 @@ with col2:
         # ----------------------------------------------------
 
         date_str = selected_date.strftime("%Y%m%d")
-        json_url = f"https://raw.githubusercontent.com/EWHA-CAPSTONE/TURTLE-AI/main/data_json/data_posture_{date_str}_summary.json"
+        json_url = f"https://raw.githubusercontent.com/EWHA-CAPSTONE/TURTLE-AI/data_json/data_posture_{date_str}_summary.json"
 
         # 1) GitHub 요청
         try:
