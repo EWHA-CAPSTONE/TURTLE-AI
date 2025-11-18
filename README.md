@@ -3,7 +3,7 @@
 # 🧍‍♂️ 거북목 방지 모니터  
 ### “당신의 하루 자세를 데이터로 기록합니다.”
 
-<p align="center">
+<p align="left">
   <a href="https://turtle-ai-ewha.streamlit.app/">
 <img src="01-turtle-posture-monitor/image/qr_streamlit.png" width="100">
   </a>
