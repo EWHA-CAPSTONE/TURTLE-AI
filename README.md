@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="https://turtle-ai-ewha.streamlit.app/">
-    <img src="qr_streamlit.png" width="200" alt="QR Code to Turtle AI">
+    <img src="qr_streamlit.png" width="70" alt="QR Code to Turtle AI">
   </a>
 </p>
 
