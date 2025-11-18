@@ -1,0 +1,11 @@
+streamlit==1.32.2
+python-dotenv==1.0.1
+
+openai==1.63.0
+
+langchain==0.3.21
+langchain-core==0.3.46
+langchain-community==0.3.20
+langchain-openai==0.3.9
+
+pydantic==2.11.5
