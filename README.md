@@ -3,6 +3,13 @@
 # 🧍‍♂️ 거북목 방지 모니터  
 ### “당신의 하루 자세를 데이터로 기록합니다.”
 
+<p align="center">
+  <a href="https://turtle-ai-ewha.streamlit.app/">
+    <img src="qr_streamlit.png" width="200" alt="QR Code to Turtle AI">
+  </a>
+</p>
+
+> 📱 모바일에서 바로 접속하려면 QR 코드를 스캔하세요.
 
 ## 👋 소개
 
