@@ -5,11 +5,32 @@ from datetime import datetime, timedelta
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
-import os
+import os, requests, json
 
+# === 비밀번호 인증 ===
+PASSWORD = "1886"
+
+# 세션 상태 초기화
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+# 인증 안 된 경우 → 비밀번호 입력창 표시 후 return
+if not st.session_state.authenticated:
+    st.markdown("<h2 style='text-align:center;'>🔐 접속 인증</h2>", unsafe_allow_html=True)
+
+    input_pw = st.text_input("비밀번호를 입력하세요", type="password")
+
+    if st.button("로그인"):
+        if input_pw == PASSWORD:
+            st.session_state.authenticated = True
+            st.experimental_rerun()
+        else:
+            st.error("❌ 비밀번호가 올바르지 않습니다.")
+
+    st.stop()  # ❗ 인증 전에는 아래 코드 실행 금지
 
 # === 절대 경로 기반 프로젝트 루트 설정 ===
-BASE_DIR = Path(__file__).resolve().parents[1]   # 0.1 → langchain
+BASE_DIR = Path(__file__).resolve().parents[1]   
 print(f"📁 BASE_DIR = {BASE_DIR}")
 
 # === .env 로드 ===
@@ -21,7 +42,8 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 # === LLM 프롬프트 ===
 template = """
-당신은 친근하고 정확한 자세 코치입니다. 아래 JSON 데이터를 바탕으로 **1분 단위 측정 세션 보고서**를 작성하세요.
+당신은 친근하고 정확한 자세 코치입니다. 
+아래 JSON 데이터를 바탕으로 **1분 단위 측정 세션 보고서**를 작성하세요.
 
 🧩 규칙:
 - JSON 안의 데이터만 사용하세요. 추가 계산이나 새로운 수치를 만들어내지 마세요.
@@ -81,8 +103,6 @@ summary는 참고용이며, 실제 해석은 details의 데이터를 기반으�
   ⑤ 피드백  
 - 각 단락은 두 줄 띄우기로 구분합니다.
 - 피드백 단락에서는 “이유 + 행동 제안 + 격려 마무리”를 포함하세요.
-  예: “중반 이후 고개 숙임이 잦았어요. 15분마다 어깨를 돌려주면 좋아요 💪 꾸준히 유지해봐요 😊”
-
 ---
 
 📋 보고서 구성:
@@ -100,12 +120,16 @@ summary는 참고용이며, 실제 해석은 details의 데이터를 기반으�
 - 후반 특징: (마지막 3분, 마지막 구간 중심으로)
 
 Top3 순간:  
-- forward_head_ratio가 높은 상위 3개 시간대의 공통 패턴과 집중도 변화 설명
+- forward_head_ratio가 높은 상위 3개 시간대를 각각 줄바꿈(\n)하여 표현합니다.  
+- 각 구간은 다음 형식을 따릅니다:
+  ① 시간대 + 상황 설명 + 행동 해석
+  - TOP1 특징: (상황 한 줄 설명 + 한 줄 해석)  
+  - TOP2 특징: (상황 한 줄 설명 + 한 줄 해석)     
+  - TOP3 특징: (상황 한 줄 설명 + 한 줄 해석)  
 
 피드백:  
 - 습관 개선, 스트레칭 제안, 장기 유지 팁 등을 2~3문장으로 서술
 - 문체는 “설명 → 제안 → 격려” 순서로 작성
-  예: “중반부에 집중이 잠시 흐트러졌어요. 이럴 땐 자리에서 일어나 어깨를 쭉 펴주세요 🙆‍♀️ 아주 잘하고 계세요 👍”
 
 형식:
 - 각 문단은 두 줄 띄우기(\n\n) 로 구분합니다.
@@ -119,13 +143,12 @@ BEGIN JSON
 END JSON
 """
 
-
 prompt = ChatPromptTemplate.from_template(template)
 
 # === LLM 체인 ===
 llm = ChatOpenAI(
     model="gpt-4o",
-    temperature=0,
+    temperature=0.3,
     api_key=api_key,
 )
 
@@ -133,29 +156,55 @@ parser = StrOutputParser()
 chain = prompt | llm | parser
 
 # === Streamlit 기본 설정 ===
-st.set_page_config(page_title="거북목 자세 분석 레포트", page_icon="🐢", layout="wide")
+st.set_page_config(page_title="거북목 자세 분석 리포트", page_icon="🐢", layout="centered")
 
-# === CSS ===
 st.markdown("""
 <style>
+
+/* 기본 폰트 & 배경 */
 body, [data-testid="stAppViewContainer"] {
     background-color: white;
     font-family: 'Noto Sans KR', sans-serif;
+    padding: 0;
+    margin: 0;
 }
-.title {
-    text-align: center;
-    color: #2E7D32;
-    font-weight: 800;
-    font-size: 2rem;
-    margin-bottom: 1.5em;
+
+/* 모바일 뷰포트 대응 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px !important;   /* 기존 70px 축소 */
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .date-box, .report-box {
+        padding: 18px !important;     /* 박스 패딩 축소 */
+        margin-bottom: 20px !important;
+    }
+
+    div[data-testid="column"] {
+        flex-direction: column !important;
+        display: block !important;    /* 컬럼이 모바일에서 아래로 떨어지도록 */
+        width: 100% !important;
+    }
+
+    /* 버튼 크기 모바일 최적화 */
+    div.stButton > button:first-child {
+        padding: 12px 12px !important;
+        font-size: 16px !important;
+        width: 100% !important;
+    }
 }
+
+/* 박스 공통 스타일 */
 .report-box {
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     padding: 35px;
-    min-height: 600px;
+    min-height: 400px;
 }
+
 .date-box {
     background-color: #ffffff;
     border-radius: 15px;
@@ -163,6 +212,8 @@ body, [data-testid="stAppViewContainer"] {
     padding: 25px;
     text-align: center;
 }
+
+/* 버튼 스타일 */
 div.stButton > button:first-child {
     background-color: #43A047;
     color: white;
@@ -171,14 +222,16 @@ div.stButton > button:first-child {
     padding: 10px 20px;
     width: 100%;
 }
+
 div.stButton > button:hover {
     background-color: #2E7D32;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
 # === HEADER ===
-st.markdown("<h1 style='font-size:70px; text-align:center;'>🐢 거북목 자세 분석 레포트</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size:70px; text-align:center;'>🐢 거북목 자세 분석 리포트</h1>", unsafe_allow_html=True)
 
 # === UI 구성 ===
 col1, col2 = st.columns([1, 2])
@@ -196,45 +249,62 @@ with col1:
         format="YYYY/MM/DD"
     )
 
-    generate_report = st.button("📄 레포트 생성하기", use_container_width=True)
+    generate_report = st.button("📄 리포트 생성하기", use_container_width=True)
     st.markdown("</div>", unsafe_allow_html=True)
-
+    
 # === 리포트 UI ===
 with col2:
     report_box = st.container()
 
     with report_box:
-        if generate_report:
-            date_str = selected_date.strftime("%Y%m%d")
-            data_dir = Path(__file__).resolve().parent / "data_json"
-            json_file = data_dir / f"data_posture_{date_str}_summary.json"
+        if not generate_report:
+            st.info("왼쪽에서 날짜를 선택하고 [📄 리포트 생성하기] 버튼을 눌러주세요.")
+            st.stop()
 
-            if json_file.exists():
-                with open(json_file, "r", encoding="utf-8") as f:
-                    json_summary = f.read()
+        # ----------------------------------------------------
+        # 리포트 생성 로직 시작
+        # ----------------------------------------------------
 
-                with st.spinner("📊 AI 분석 중..."):
-                    report = chain.invoke({"json_summary": json_summary})
+        date_str = selected_date.strftime("%Y%m%d")
+        json_url = f"https://raw.githubusercontent.com/EWHA-CAPSTONE/TURTLE-AI/main/data_json/data_posture_{date_str}_summary.json"
 
-                st.markdown("### 💬 코치 피드백")
-                st.markdown(
-                    f"""
-                    <div style="
-                        background-color: #F1F8E9;
-                        border-radius: 12px;
-                        padding: 25px;
-                        margin-top: 20px;
-                        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-                        font-size: 1rem;
-                        line-height: 1.6;
-                    ">
-                        {report}
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
+        # 1) GitHub 요청
+        try:
+            response = requests.get(json_url)
+        except Exception as e:
+            st.error(f"❌ GitHub 요청 자체 실패: {e}")
+            st.stop()
 
-            else:
-                st.error(f"❌ 해당 날짜({selected_date.strftime('%Y/%m/%d')})의 데이터 파일이 없습니다.")
-        else:
-            st.info("왼쪽에서 날짜를 선택하고 [📄 레포트 생성하기] 버튼을 눌러주세요.")
+        # 2) 파일 존재 여부 체크
+        if response.status_code != 200:
+            st.error(
+                f"❌ 해당 날짜({selected_date.strftime('%Y/%m/%d')})의 JSON 데이터가 GitHub에 없습니다.\n"
+                f"URL: {json_url}"
+            )
+            st.stop()
+
+        # 3) 정상 로딩
+        json_summary = response.text
+
+        # 4) AI 분석
+        with st.spinner("📊 AI 분석 중..."):
+            report = chain.invoke({"json_summary": json_summary})
+
+        # 5) 출력 UI
+        st.markdown("### 💬 코치 피드백")
+        st.markdown(
+            f"""
+            <div style="
+                background-color: #F1F8E9;
+                border-radius: 12px;
+                padding: 25px;
+                margin-top: 20px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+                font-size: 1rem;
+                line-height: 1.6;
+            ">
+                {report}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
