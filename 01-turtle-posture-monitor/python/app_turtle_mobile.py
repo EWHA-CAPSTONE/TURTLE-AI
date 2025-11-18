@@ -23,7 +23,7 @@ if not st.session_state.authenticated:
     if st.button("로그인"):
         if input_pw == PASSWORD:
             st.session_state.authenticated = True
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("❌ 비밀번호가 올바르지 않습니다.")
 
