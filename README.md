@@ -58,10 +58,10 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 2. 수집 실행
 
    ```bash
-   python python/serial_logger.py
+   python python/serial_logger.py && python python/summary_builder.py
    ```
 
-   → `data_csv/` 폴더에 저장
+   → `data_csv/`,`data_json/` 폴더에 저장
 
 ### 3️⃣ 리포트 생성
 
@@ -69,7 +69,7 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 python python/app_turtle.py
 ```
 
-→ `data_json/` 폴더에 요약 결과 생성
+→ `data_json/` 폴더에 요약 결과 기반 리포트 작성
 
 
 ## 📊 예시 결과
