@@ -169,10 +169,22 @@ body, [data-testid="stAppViewContainer"] {
     margin: 0;
 }
 
+
+/* 모바일(iPhone 14 포함) 화면일 때 적용 */
+@media (max-width: 768px) {
+    .title-header {
+        font-size: 30px !important;   /* 모바일 텍스트 크기 */
+        line-height: 1.2;
+    }
+    .turtle-icon {
+        font-size: 32px !important;   /* 모바일 이모지 크기 */
+    }
+}
+
 /* 모바일 뷰포트 대응 */
 @media (max-width: 768px) {
     h1 {
-        font-size: 36px !important;   /* 기존 70px 축소 */
+        font-size: 30px !important;   /* 기존 70px 축소 */
         line-height: 1.2;
         margin-bottom: 20px;
     }
@@ -232,8 +244,8 @@ div.stButton > button:hover {
 
 # === HEADER ===
 st.markdown("""
-<h1 style='font-size:20px; text-align:center;'>
-    <span style="font-size:20px; vertical-align:middle;">🐢</span>
+<h1 class="title-header">
+    <span class="turtle-icon">🐢</span>
     거북목 자세 분석 리포트
 </h1>
 """, unsafe_allow_html=True)
