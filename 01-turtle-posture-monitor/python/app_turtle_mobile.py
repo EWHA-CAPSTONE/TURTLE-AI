@@ -48,7 +48,7 @@ template = """
 🧩 규칙:
 - JSON 안의 데이터만 사용하세요. 추가 계산이나 새로운 수치를 만들어내지 마세요.
 
----
+ㄴㅅ
 
 [JSON 구조]
 - summary: 전체 통계 (참고용). 'total_segments'나 'avg_forward_head_per_segment' 같은 값은 단순 기술 수치이므로 보고서에 직접 언급하지 마세요.
@@ -232,8 +232,8 @@ div.stButton > button:hover {
 
 # === HEADER ===
 st.markdown("""
-<h1 style='font-size:50px; text-align:center;'>
-    <span style="font-size:50px; vertical-align:middle;">🐢</span>
+<h1 style='font-size:40px; text-align:center;'>
+    <span style="font-size:40px; vertical-align:middle;">🐢</span>
     거북목 자세 분석 리포트
 </h1>
 """, unsafe_allow_html=True)
