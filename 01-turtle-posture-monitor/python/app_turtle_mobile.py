@@ -233,7 +233,7 @@ div.stButton > button:hover {
 # === HEADER ===
 st.markdown("""
 <h1 style='font-size:50px; text-align:center;'>
-    <span style="font-size:60px; vertical-align:middle;">🐢</span>
+    <span style="font-size:50px; vertical-align:middle;">🐢</span>
     거북목 자세 분석 리포트
 </h1>
 """, unsafe_allow_html=True)
