@@ -79,12 +79,14 @@ python python/app_turtle.py
 → `data_json/` 폴더에 요약 결과 기반 리포트 작성
 
 
-## 📊 예시 결과
+## 📊 리포트 전달
 
 > 하루 동안의 측정 데이터를 기반으로 자동 생성된 리포트입니다.  
 > 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
 
 <p align="center">
-  <img src="01-turtle-posture-monitor/image/turtle-posture-report.png" width="720" alt="거북목 자세 분석 리포트 예시">
+  <img src="https://github.com/user-attachments/assets/e60a0d5e-24d3-4481-a0a0-45d5f38ebf8a" width="30%">
+  <img src="https://github.com/user-attachments/assets/c178a9b7-71bf-420b-9b9d-0820b3fa7d56" width="30%">
+  <img src="https://github.com/user-attachments/assets/2094418b-aceb-4580-9537-f39677c4073b" width="30%">
 </p>
 
