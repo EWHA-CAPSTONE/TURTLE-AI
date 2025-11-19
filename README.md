@@ -61,6 +61,8 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
+### 🐢💨결과
+
 > 하루 동안의 측정 데이터를 기반으로 자동 생성된 리포트입니다.  
 > 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
 
