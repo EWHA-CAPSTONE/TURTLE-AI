@@ -44,7 +44,6 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 </p>
 
 
-
 ## 🚀 사용 방법
 
 ### 1️⃣ 아두이노 설정
@@ -57,8 +56,10 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 
 1. 개발 도구
 
-![Arudino](https://img.shields.io/badge/Arduino-000000?style=for-the-badge&logo=pycharm&logoColor=white)
-![Python]과
+![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
 > 하루 동안의 측정 데이터를 기반으로 자동 생성된 리포트입니다.  
 > 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
