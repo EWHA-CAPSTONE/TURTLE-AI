@@ -231,7 +231,7 @@ div.stButton > button:hover {
 """, unsafe_allow_html=True)
 
 # === HEADER ===
-st.markdown("<h1 style='font-size:70px; text-align:center;'>🐢 거북목 자세 분석 리포트</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size:60px; text-align:center;'>🐢 거북목 자세 분석 리포트</h1>", unsafe_allow_html=True)
 
 # === UI 구성 ===
 col1, col2 = st.columns([1, 2])
