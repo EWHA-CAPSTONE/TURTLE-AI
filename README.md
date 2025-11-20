@@ -10,6 +10,14 @@
 </p>
 
 > 📱 모바일에서 바로 접속하려면 QR 코드를 스캔하세요.
+> > 하루 동안의 측정 데이터를 기반으로 자동 생성된 리포트입니다.  
+> > 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e60a0d5e-24d3-4481-a0a0-45d5f38ebf8a" width="30%">
+  <img src="https://github.com/user-attachments/assets/c178a9b7-71bf-420b-9b9d-0820b3fa7d56" width="30%">
+  <img src="https://github.com/user-attachments/assets/2094418b-aceb-4580-9537-f39677c4073b" width="30%">
+</p>
 
 ## 👋 소개
 
@@ -60,15 +68,4 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-
-## 🐢💨 결과
-
-> 하루 동안의 측정 데이터를 기반으로 자동 생성된 리포트입니다.  
-> 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e60a0d5e-24d3-4481-a0a0-45d5f38ebf8a" width="30%">
-  <img src="https://github.com/user-attachments/assets/c178a9b7-71bf-420b-9b9d-0820b3fa7d56" width="30%">
-  <img src="https://github.com/user-attachments/assets/2094418b-aceb-4580-9537-f39677c4073b" width="30%">
-</p>
 
