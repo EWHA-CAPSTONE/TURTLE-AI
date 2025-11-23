@@ -50,18 +50,16 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
   <img src="01-turtle-posture-monitor/image/turtle-posture-graph.png" width="720" alt="거북목 자세 분석 리포트 예시">
 </p>
 
-
-## 🚀 사용 방법
-
 <div align="center">
 
-**개발도구**
 <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white"/>
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
 
 </div>
+
+## 🚀 사용 방법
 
 ### 1️⃣ 아두이노 설정
 
