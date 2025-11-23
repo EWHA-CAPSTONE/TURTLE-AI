@@ -10,7 +10,6 @@
 </p>
 
 > 📱 모바일에서 바로 접속하려면 QR 코드를 스캔하세요.
-> 하루 동안의 측정 데이터를 기반으로 자동 생성된 리포트입니다.  
 > 자세 변화, 숙임 비율, 구간별 행동 분석, 그리고 코치 피드백이 함께 제공됩니다.
 
 <p align="center">
@@ -54,6 +53,17 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 
 ## 🚀 사용 방법
 
+**개발 도구**
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white"/>
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
+
+</div>
+
 ### 1️⃣ 아두이노 설정
 
 1. `arduino/posture_monitor.ino` 업로드
@@ -62,14 +72,8 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 
 ### 2️⃣ 데이터 수집
 
-1. 개발 도구
+**데이터 전처리 파이프라인**
 
-![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-
-2.
 - `data_csv/` 실시간 각도 저장 (time : theta_neck)
 - `data_json/` 1 분 단위 정제 → 거북목 비율 (%)
 - `data_json/` 하루 JSON 저장
