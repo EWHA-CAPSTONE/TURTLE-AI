@@ -70,7 +70,7 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
 2.
-- 실시간 각도 저장 (time : theta_neck)
-- 1분 단위 정제 → 거북목 비율 (%)
-- 하루 JSON 저장
-- LLM 분석 
+- `data_csv/` 실시간 각도 저장 (time : theta_neck)
+- `data_json/` 1 분 단위 정제 → 거북목 비율 (%)
+- `data_json/` 하루 JSON 저장
+- `python/app.py` LLM 분석 
