@@ -53,10 +53,9 @@ AI 분석을 통해 **자세 습관을 교정**해주는 개인용 자세 모니
 
 ## 🚀 사용 방법
 
-**개발 도구**
-
 <div align="center">
 
+**개발도구**
 <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white"/>
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
